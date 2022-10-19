@@ -42,7 +42,8 @@ public class Circle
      */
     public Circle(Point location, double radius)
     {
-        // TODO: add your code here.
+        setLocation(location);
+        setRadius(radius);
     }
 
     //accessors
@@ -63,7 +64,7 @@ public class Circle
      */
     public Point getLocation()
     {
-        // TODO: add your code here.
+        return new Point(location);
     }
 
     // mutator methods
@@ -84,7 +85,7 @@ public class Circle
      */
     public void setLocation(Point location)
     {
-        // TODO: add your code here.
+        this.location = new Point(location);
     }
 
     // other methods
@@ -96,7 +97,9 @@ public class Circle
      */
     public boolean contains(Point p)
     {
-        // TODO: add your code here.
+        double locate = location.distanceTo(p);
+        return locate < radius;
+
     }
 
     /**
@@ -107,7 +110,9 @@ public class Circle
      */
     public boolean intersects(Circle aCircle)
     {
-        // TODO: add your code here.
+        double overlap = location.distanceTo(aCircle.getLocation());
+        double totalRadius = aCircle.radius + this.radius;
+        return overlap < totalRadius;
     }
 
     /**
